@@ -1,0 +1,25 @@
+name: assets-selftest
+on:
+  push:
+    branches: [assets-selftest]
+  workflow_dispatch:
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: catalog reachability
+        id: st
+        continue-on-error: true
+        run: python3 kit/assets_core.py selftest
+      - name: real downloads
+        id: probe
+        continue-on-error: true
+        run: python3 probe.py
+      - name: verdict
+        run: |
+          echo "selftest=${{ steps.st.outcome }} probe=${{ steps.probe.outcome }}"
+          [ "${{ steps.st.outcome }}" = success ] && [ "${{ steps.probe.outcome }}" = success ]

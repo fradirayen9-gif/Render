@@ -1,0 +1,71 @@
+{
+  "_doc": "NewsKit asset library manifest. © 2026 Rayen Fradi. Edit freely: tiers, which art shadings get which assets, and search hints per world/mood. Everything here is optional: a missing/failed asset falls back to a procedural one.",
+  "version": 1,
+  "policy": {"licenses": ["CC0"], "sources": ["polyhaven", "ambientcg"]},
+  "tiers": {
+    "off":      {"pbr": 0, "hdri": 0, "models": 0, "proc": false, "sfx": false, "vfx": false, "anim": false},
+    "lite":     {"pbr": 0, "hdri": 0, "models": 0, "proc": true,  "sfx": true,  "vfx": true,  "anim": true,  "tex_res": 512,  "res": "1k"},
+    "standard": {"pbr": 2, "hdri": 1, "models": 2, "proc": true,  "sfx": true,  "vfx": true,  "anim": true,  "tex_res": 1024, "res": "1k"},
+    "ultra":    {"pbr": 3, "hdri": 1, "models": 4, "proc": true,  "sfx": true,  "vfx": true,  "anim": true,  "tex_res": 2048, "res": "2k"}
+  },
+  "shading_use": {
+    "pbr":    {"tex": ["ground", "solid"], "hdri": 1.0, "models": "keep"},
+    "chrome": {"tex": ["ground"],          "hdri": 1.7, "models": "style"},
+    "glass":  {"tex": ["ground"],          "hdri": 1.2, "models": "style"},
+    "clay":   {"tex": ["ground"],          "hdri": 0.8, "models": "style"},
+    "lowpoly":{"tex": [],                  "hdri": 0.7, "models": "style"},
+    "paper":  {"tex": [],                  "hdri": 0.0, "models": "style"},
+    "toon":   {"tex": [],                  "hdri": 0.0, "models": "style"},
+    "halftone":{"tex": [],                 "hdri": 0.0, "models": "style"},
+    "flat":   {"tex": [],                  "hdri": 0.0, "models": "style"},
+    "painterly":{"tex": [],                "hdri": 0.0, "models": "style"},
+    "neon":   {"tex": [],                  "hdri": 0.0, "models": "style"},
+    "mono":   {"tex": ["ground"],          "hdri": 0.6, "models": "style"}
+  },
+  "proc_pbr": {
+    "backrooms":       ["carpet_wet", "wallpaper_old", "concrete"],
+    "city_blocks":     ["asphalt", "concrete", "tiles"],
+    "alien_planet":    ["rust", "rock", "concrete"],
+    "desert_dunes":    ["sand", "rock"],
+    "crystal_cave":    ["rock", "marble"],
+    "floating_islands":["rock", "grass"],
+    "ocean":           ["sand", "wood"],
+    "cloudscape":      ["marble", "fabric"],
+    "grid_space":      ["carbon", "brushed_metal"],
+    "void_studio":     ["concrete", "brushed_metal", "marble"],
+    "tabletop":        ["wood", "fabric", "paper"],
+    "default":         ["concrete", "brushed_metal", "tiles", "marble"]
+  },
+  "pbr_search": {
+    "backrooms":       ["carpet", "wallpaper", "plaster", "concrete"],
+    "city_blocks":     ["asphalt", "concrete", "pavement", "brick"],
+    "alien_planet":    ["rock", "rust", "ground", "moss"],
+    "desert_dunes":    ["sand", "rock", "ground"],
+    "crystal_cave":    ["rock", "stone", "marble"],
+    "floating_islands":["grass", "rock", "ground", "moss"],
+    "ocean":           ["sand", "rock", "wood"],
+    "cloudscape":      ["marble", "fabric", "plaster"],
+    "grid_space":      ["metal", "carbon", "tiles"],
+    "void_studio":     ["concrete", "plaster", "metal", "marble"],
+    "tabletop":        ["wood", "fabric", "leather", "paper"],
+    "default":         ["concrete", "metal", "tiles", "wood"]
+  },
+  "hdri_search": {
+    "money":   ["studio", "indoor"],
+    "danger":  ["night", "urban", "sunset-sunrise"],
+    "hope":    ["sunrise", "sunset-sunrise", "skies"],
+    "tech":    ["studio", "indoor", "night"],
+    "calm":    ["skies", "outdoor", "nature"],
+    "news":    ["studio", "indoor", "urban"],
+    "default": ["studio", "outdoor", "skies"]
+  },
+  "model_search": {
+    "coin": ["coin"], "bar": ["gold", "ingot"], "phone": ["phone", "smartphone"], "rocket": ["rocket"],
+    "car": ["car", "vehicle"], "house": ["house", "cottage", "building"], "chip": ["circuit", "chip"],
+    "trophy": ["trophy", "cup"], "ball": ["football", "soccer", "basketball", "ball"], "globe": ["globe", "earth"],
+    "lock": ["lock", "padlock"], "robot": ["robot"], "tower": ["tower"], "crown": ["crown"]
+  },
+  "anim_presets": ["float", "spin", "wobble", "orbit", "hop", "swing", "breathe"],
+  "vfx_presets": ["confetti", "sparkles", "embers", "dust"],
+  "novelty": {"avoid_last": 12}
+}
