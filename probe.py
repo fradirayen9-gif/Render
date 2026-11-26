@@ -6,6 +6,7 @@ import assets_core as A
 def size(m):
     p = (m or {}).get("dir") or (m or {}).get("file")
     if not p: return 0
+    if os.path.isfile(p) and p.endswith(".gltf"): p = os.path.dirname(p)          # model = gltf + its .bin/textures
     if os.path.isfile(p): return os.path.getsize(p)
     return sum(os.path.getsize(os.path.join(r, f)) for r, _, fs in os.walk(p) for f in fs)
 
